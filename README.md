@@ -6,10 +6,8 @@
 
 ## 使用方法
 
-### 1.编译成二进制
-```bash
-make build
-```
+### 1.下载
+在[release](https://github.com/luochangbin/images-migrate/releases) 页面可直接下载二进制和源码包
 ### 2.创建配置文件config.yaml
 ``` bash
 access_key: "xxxx" #阿里云ak
@@ -23,6 +21,7 @@ passwd_hw: "xxx" #华为云镜像仓库登录密码
 ```
 ### 3.执行命令
 ```bash
+chmod 755 images-migrate
 ./images-migrate -config config.yaml
 ```
 
