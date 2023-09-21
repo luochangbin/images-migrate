@@ -15,11 +15,11 @@ make build
 access_key: "xxxx" #阿里云ak
 secret_key: "xxxx" #阿里云sk
 region_ali: "cn-hangzhou" # 阿里云区域 https://help.aliyun.com/document_detail/198107.html
-user_ali: "xxx" #阿里云镜像用户
-passwd_ali: "xxx" #阿里云镜像密码
+user_ali: "xxx" #阿里云镜像仓库登录用户
+passwd_ali: "xxx" #阿里云镜像仓库登录密码
 region_hw: "cn-south-1" # 华为云区域  https://developer.huaweicloud.com/endpoint?SWR
-user_hw: "xxx" #华为云镜像用户
-passwd_hw: "xxx" #华为云镜像密码
+user_hw: "xxx" #华为云镜像仓库登录用户
+passwd_hw: "xxx" #华为云镜像仓库登录密码
 ```
 ### 3.执行命令
 ```bash
