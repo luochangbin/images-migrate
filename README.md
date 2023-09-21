@@ -21,21 +21,22 @@ passwd_hw: "xxx" #华为云镜像仓库登录密码
 ```
 ### 3.执行命令
 ```bash
-chmod 755 images-migrate
-./images-migrate -config config.yaml
+chmod 755 images-migrate-linux-amd64
+./images-migrate-linux-amd64 -config config.yaml
 ```
 
 ## 更多参数
 ```bash
-  -config string
-        config file path (default "config.yaml")
-  -force
-        force update manifest whether the destination manifest exists
-  -log string
-        log file path (default in os.Stderr)
-  -proc int
-        numbers of working goroutines (default 5)
-  -retries int
-        times to retry failed task (default 2)
+-h  --help       使用说明，会打印出一些启动参数的当前默认值
+
+    --config     设置用户提供的配置文件路径
+
+    --log        打印出来的log文件路径，默认打印到标准错误输出，如果将日志打印到文件将不会有命令行输出，此时需要通过cat对应的日志文件查看
+
+    --proc       并发数，进行镜像同步的并发goroutine数量，默认为5
+
+    --retries    失败同步任务的重试次数，默认为2，重试会在所有任务都被执行一遍之后开始，并且也会重新尝试对应次数生成失败任务的生成。一些偶尔出现的网络错误比如io timeout、TLS handshake timeout，都可以通过设置重试次数来减少失败的任务数量
+
+    --force      同步已经存在的、被忽略的镜像，这个操作会更新已存在镜像的时间戳
 
 ```
