@@ -1,8 +1,11 @@
 
 
 ## 项目介绍:
-- 利用阿里云接口获取镜像列表并生成auth.json和images.json文件
+- 使用阿里云[alibaba-cloud-sdk-go](github.com/aliyun/alibaba-cloud-sdk-go/services/cr) 获取镜像列表并生成auth.json和images.json文件
 - 使用阿里云开源镜像同步工具[image-syncer](https://github.com/AliyunContainerService/image-syncer) 进行镜像同步
+
+## 限制
+- 仅支持从阿里云ACR同步到华为SWR，且不支持同步到华为SWR企业版
 
 ## 使用方法
 
@@ -19,7 +22,8 @@ region_hw: "cn-south-1" # 华为云区域  https://developer.huaweicloud.com/end
 user_hw: "xxx" #华为云镜像仓库登录用户
 passwd_hw: "xxx" #华为云镜像仓库登录密码
 ns_org_map:   #若在华为云SWR无法使用原命名空间名称，可指定阿里命名空间和华为组织名称映射关系
-  test-acr: test-demo
+  ali-namespace1: swr-organization1
+  ali-namespace2: swr-organization2
 ```
 ### 3.在华为云SWR控制台创建组织，组织名称与阿里云ACR的命名空间同名
 ### 4.执行命令
