@@ -19,7 +19,8 @@ region_hw: "cn-south-1" # 华为云区域  https://developer.huaweicloud.com/end
 user_hw: "xxx" #华为云镜像仓库登录用户
 passwd_hw: "xxx" #华为云镜像仓库登录密码
 ```
-### 3.执行命令
+### 3.在华为云SWR控制台创建组织，组织名称与阿里云ACR的命名空间同名
+### 4.执行命令
 ```bash
 chmod 755 images-migrate-linux-amd64
 ./images-migrate-linux-amd64 -config config.yaml
