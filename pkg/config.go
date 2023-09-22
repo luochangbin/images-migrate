@@ -16,8 +16,9 @@ type Config struct {
 	UserAli   string `yaml:"user_ali"`
 	PasswdAli string `yaml:"passwd_ali"`
 	//Huawei SWR Account
-	UserHw   string `yaml:"user_hw"`
-	PasswdHw string `yaml:"passwd_hw"`
+	UserHw   string            `yaml:"user_hw"`
+	PasswdHw string            `yaml:"passwd_hw"`
+	NsOrgMap map[string]string `yaml:"ns_org_map,omitempty"`
 }
 
 var config *Config

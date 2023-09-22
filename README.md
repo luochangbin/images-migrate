@@ -18,6 +18,8 @@ passwd_ali: "xxx" #阿里云镜像仓库登录密码
 region_hw: "cn-south-1" # 华为云区域  https://developer.huaweicloud.com/endpoint?SWR
 user_hw: "xxx" #华为云镜像仓库登录用户
 passwd_hw: "xxx" #华为云镜像仓库登录密码
+ns_org_map:   #若在华为云SWR无法使用原命名空间名称，可指定阿里命名空间和华为组织名称映射关系
+  test-acr: test-demo
 ```
 ### 3.在华为云SWR控制台创建组织，组织名称与阿里云ACR的命名空间同名
 ### 4.执行命令

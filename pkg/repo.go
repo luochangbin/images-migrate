@@ -79,6 +79,11 @@ func GenImagesFile(imageFile, namespaces string, c *Config) error {
 			}
 			aliImage := fmt.Sprintf("%s/%s/%s", aliRepoName, v.RepoNamespace, v.RepoName)
 			hwImage := fmt.Sprintf("%s/%s/%s", hwRepoName, v.RepoNamespace, v.RepoName)
+
+			//If you specify a mapping relationship between namespace and organization, the original name is overwritten
+			if r, ok := c.NsOrgMap[v.RepoNamespace]; ok {
+				hwImage = fmt.Sprintf("%s/%s/%s", hwRepoName, r, v.RepoName)
+			}
 			imagesMap[aliImage] = hwImage
 		}
 
