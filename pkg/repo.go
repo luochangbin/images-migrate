@@ -7,6 +7,7 @@ import (
 	"github.com/aliyun/alibaba-cloud-sdk-go/services/cr"
 	"os"
 	"strconv"
+	"strings"
 )
 
 type Repos struct {
@@ -47,7 +48,7 @@ func GenAuthFile(authFile string, c *Config) error {
 	return nil
 }
 
-func GenImagesFile(imageFile string, c *Config) error {
+func GenImagesFile(imageFile, namespaces string, c *Config) error {
 	client, err := cr.NewClientWithAccessKey(c.RegionAli, c.AccessKey, c.SecretKey)
 	if err != nil {
 		return err
@@ -73,6 +74,9 @@ func GenImagesFile(imageFile string, c *Config) error {
 		}
 
 		for _, v := range res.Data.Repos {
+			if namespaces != "" && !strings.Contains(namespaces, v.RepoNamespace) {
+				continue
+			}
 			aliImage := fmt.Sprintf("%s/%s/%s", aliRepoName, v.RepoNamespace, v.RepoName)
 			hwImage := fmt.Sprintf("%s/%s/%s", hwRepoName, v.RepoNamespace, v.RepoName)
 			imagesMap[aliImage] = hwImage
