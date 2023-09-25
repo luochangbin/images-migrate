@@ -5,7 +5,9 @@
 - 使用阿里云开源镜像同步工具[image-syncer](https://github.com/AliyunContainerService/image-syncer) 进行镜像同步
 
 ## 限制
-- 仅支持从阿里云ACR同步到华为SWR，且不支持同步到华为SWR企业版
+- 仅支持从阿里云ACR同步到华为SWR
+- 不支持同步到华为SWR企业版
+- 同步过程中不会自动创建华为SWR组织，需要用户在同步之前手动创建
 
 ## 使用方法
 
@@ -21,8 +23,8 @@ passwd_ali: "xxx" #阿里云镜像仓库登录密码
 region_hw: "cn-south-1" # 华为云区域  https://developer.huaweicloud.com/endpoint?SWR
 user_hw: "xxx" #华为云镜像仓库登录用户
 passwd_hw: "xxx" #华为云镜像仓库登录密码
-ns_org_map:   #可指定命名空间和组织名称映射关系，将阿里云namespace1下的镜像同步至华为云organization1下
-  namespace1: organization1
+ns_org_map:   #可指定命名空间和组织名称同步关系，不配置该字段则将镜像同步至与命名空间同名的组织名称下
+  namespace1: organization1  #将阿里云namespace1下的镜像同步至华为云organization1下
   namespace2: organization2
 ```
 ### 3.在华为云SWR控制台创建组织
