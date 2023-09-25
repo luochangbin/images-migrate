@@ -21,11 +21,11 @@ passwd_ali: "xxx" #阿里云镜像仓库登录密码
 region_hw: "cn-south-1" # 华为云区域  https://developer.huaweicloud.com/endpoint?SWR
 user_hw: "xxx" #华为云镜像仓库登录用户
 passwd_hw: "xxx" #华为云镜像仓库登录密码
-ns_org_map:   #若在华为云SWR无法使用原命名空间名称，可指定阿里命名空间和华为组织名称映射关系
-  ali-namespace1: swr-organization1
-  ali-namespace2: swr-organization2
+ns_org_map:   #可指定命名空间和组织名称映射关系，将阿里云namespace1下的镜像同步至华为云organization1下
+  namespace1: organization1
+  namespace2: organization2
 ```
-### 3.在华为云SWR控制台创建组织，组织名称与阿里云ACR的命名空间同名
+### 3.在华为云SWR控制台创建组织
 ### 4.执行命令
 ```bash
 chmod 755 images-migrate-linux-amd64
